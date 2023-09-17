@@ -14,18 +14,64 @@ namespace Metier
 
         public Prestation(DateTime dateHeureSoin, string libelle, Intervenant intervenant)
         {
-            this.dateHeureSoin = dateHeureSoin;
-            this.libelle = libelle;
+            this.DateHeureSoin = dateHeureSoin;
+            this.Libelle = libelle;
             this.intervenant = intervenant;
+
+            intervenant.AjoutePrestation(this);
         }
 
-        /**
-         * Compare si la date de la prestation actuelle est superieure à une autre et renvoi un 
-         * boolean en concequence
-         */
-        public Boolean CompareTo(Prestation prestation)
+        public DateTime DateHeureSoin
         {
-            return this.dateHeureSoin.Date == prestation.dateHeureSoin.Date;
+            get => dateHeureSoin;
+            set
+            {
+                try
+                {
+                    if (DateTime.Compare(value, DateTime.Now) == -1)
+                        dateHeureSoin = value;
+                    else
+                    {
+                        throw new Exception("La prestation doit avoir deja eu lieu");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex);     
+                }
+            }
+        }
+
+        public string Libelle { get => libelle; set => libelle = value; }
+        internal Intervenant Intervenant { get => intervenant; set => intervenant = value; }
+
+        /// <summary>
+        /// Passe par la methode statique compare en rend -1 si DateHeureSoin est anterieure a prestation.dateHeureSoin, 
+        /// 0 si egale 
+        /// 1 si superieure
+        /// </summary>
+        /// <param name="prestation"></param>
+        /// <returns></returns>
+        public int CompareTo(Prestation prestation)
+        {
+            //if(this.DateHeureSoin.Date == prestation.DateHeureSoin.Date)
+            //{
+            //    return 0;
+            //}
+            //else if(this.DateHeureSoin.Date > prestation.DateHeureSoin.Date)
+            //{
+            //    return 1;
+            //}
+            //else
+            //{
+            //    return -1;
+            //}
+            return DateTime.Compare(this.DateHeureSoin.Date, prestation.DateHeureSoin.Date);
+        }
+
+        public string toString()
+        { 
+            return "Libelle : " + this.Libelle + " - " + this.DateHeureSoin + " - " + this.Intervenant.toString();   
         }
     }
 }

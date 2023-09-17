@@ -27,5 +27,10 @@ namespace Metier
         {
             this.listePresta.Add(prestation);
         }
+
+        public string toString()
+        {
+            return "Intervenant : " + this.Nom + " " + this.Prenom;
+        }
     }
 }

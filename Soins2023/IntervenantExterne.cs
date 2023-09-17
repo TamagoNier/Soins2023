@@ -22,5 +22,10 @@ namespace Metier
         public string Specialite { get => specialite; }
         public string Adresse { get => adresse; set => adresse = value; }
         public string Tel { get => tel; set => tel = value; }
+
+        public string toString()
+        {
+            return "Intervenant Externe : " + this.Nom + " " + this.Prenom +" Specialité : " + this.Specialite;
+        }
     }
 }
