@@ -12,7 +12,7 @@ namespace Metier
         private string nom;
         private string prenom;
         private DateTime dateNaissance;
-        private List<Prestation> listePresta = new List<Prestation>();
+        private List<Prestation> prestations = new List<Prestation>();
 
         public Dossier(string nom, string prenom, DateTime dateNaissance)
         {
@@ -20,20 +20,13 @@ namespace Metier
             this.prenom = prenom;
             this.dateNaissance = dateNaissance;
         }
-        public Dossier(string nom, string prenom, DateTime dateNaissance, Prestation presta)
+        public Dossier(string nom, string prenom, DateTime dateNaissance, Prestation presta):this(nom, prenom, dateNaissance)
         {
-            this.nom = nom;
-            this.prenom = prenom;
-            this.dateNaissance = dateNaissance;
-            this.listePresta.Add(presta);
+            this.prestations.Add(presta);
         }
-        public Dossier(string nom, string prenom, DateTime dateNaissance, List<Prestation> newListePrestations)
+        public Dossier(string nom, string prenom, DateTime dateNaissance, List<Prestation> newListePrestations):this(nom, prenom, dateNaissance)
         {
-            this.nom = nom;
-            this.prenom = prenom;
-            this.dateNaissance = dateNaissance;
-
-            this.listePresta.AddRange(newListePrestations);
+            this.prestations = newListePrestations;
         }
 
         public string Nom { get => nom; set => nom = value; }
@@ -46,7 +39,7 @@ namespace Metier
         /// <param name="prestation"></param>
         public void AjoutePrestation(Prestation prestation)
         {
-            this.listePresta.Add(prestation);
+            this.prestations.Add(prestation);
         }
 
         /// <summary>
@@ -55,7 +48,7 @@ namespace Metier
         /// <param name="prestations"></param>
         public void AjoutePrestations(List<Prestation> prestations)
         {
-            this.listePresta.AddRange(prestations);
+            this.prestations.AddRange(prestations);
         }
 
 
@@ -68,9 +61,9 @@ namespace Metier
         {
             Int32 compteur;
             List<Prestation> jourPresta = new List<Prestation>();
-            jourPresta.Add(this.listePresta[0]);
+            jourPresta.Add(this.prestations[0]);
 
-            foreach (Prestation presta in this.listePresta)
+            foreach (Prestation presta in this.prestations)
             {
                 compteur = 0;
                 while(compteur < jourPresta.Count)
@@ -94,18 +87,18 @@ namespace Metier
         {
             int nbJoursPresta = 0;
 
-            for (int i = 0; i < this.listePresta.Count - 1; i++)
+            for (int i = 0; i < this.prestations.Count - 1; i++)
             {
-                for (int j = i + 1; j < this.listePresta.Count; j++)
+                for (int j = i + 1; j < this.prestations.Count; j++)
                 {
-                    if (this.listePresta[j].CompareTo(this.listePresta[i]) != 0)
+                    if (this.prestations[j].CompareTo(this.prestations[i]) != 0)
                     {
                         nbJoursPresta++;
                     }
                     
                 }
             }
-            if(this.listePresta.Count > 0  && nbJoursPresta == 0)
+            if(this.prestations.Count > 0  && nbJoursPresta == 0)
             {
                 return 1;
             }else
@@ -118,7 +111,7 @@ namespace Metier
         {
             int nbPrestaExt = 0;
 
-            foreach(Prestation prestation in this.listePresta)
+            foreach(Prestation prestation in this.prestations)
             {
                 if(prestation.Intervenant is IntervenantExterne)
                 {
@@ -128,11 +121,15 @@ namespace Metier
             return nbPrestaExt;
         }
 
+        /// <summary>
+        /// Methode surchargé de toString
+        /// </summary>
+        /// <returns>Retourne un string contenant les données du dossier</returns>
         public string toString()
         {
             Console.WriteLine("Debut dossier");
             Console.WriteLine("Nom : " + this.Nom + " Prenom : " + this.Prenom);
-            foreach(Prestation prestation in this.listePresta)
+            foreach(Prestation prestation in this.prestations)
             {
                 Console.WriteLine("\t" + prestation.toString());
             }

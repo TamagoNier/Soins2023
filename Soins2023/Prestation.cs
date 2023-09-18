@@ -69,9 +69,21 @@ namespace Metier
             return DateTime.Compare(this.DateHeureSoin.Date, prestation.DateHeureSoin.Date);
         }
 
+        /// <summary>
+        /// Methode surchargé de toString
+        /// </summary>
+        /// <returns>Retourne un string contenant les données de la prestation</returns>
         public string toString()
         { 
-            return "Libelle : " + this.Libelle + " - " + this.DateHeureSoin + " - " + this.Intervenant.toString();   
+            if(this.Intervenant is IntervenantExterne)
+            {
+                IntervenantExterne intervenant = (IntervenantExterne)this.Intervenant;
+                return "Libelle : " + this.Libelle + " - " + this.DateHeureSoin + " - " + intervenant.toString();
+            }
+            else
+            {
+                return "Libelle : " + this.Libelle + " - " + this.DateHeureSoin + " - " + this.Intervenant.toString();
+            } 
         }
     }
 }

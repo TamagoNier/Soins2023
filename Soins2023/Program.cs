@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Metier;
+using Outils;
 
 namespace Soins2023
 {
@@ -50,8 +51,8 @@ namespace Soins2023
                 d1.AjoutePrestations(prestations);
                 d2.AjoutePrestations(prestations2);
 
-                Console.WriteLine(d1.toString());
-                Console.WriteLine(d2.toString());
+                Console.WriteLine(Traitement.TesteDossier(d1));
+                Console.WriteLine(Traitement.TesteDossier(d2));
                 Console.WriteLine("Nombre de jours de soin D1 : " + d1.GetNbJoursSoinV2());
                 Console.WriteLine("Nombre de jours de soin D2 : " + d2.GetNbJoursSoinV2());
                 Console.WriteLine("Nombre de soins externes D1: " + d1.GetNbPrestationsExternes());

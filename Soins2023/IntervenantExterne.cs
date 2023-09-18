@@ -23,9 +23,13 @@ namespace Metier
         public string Adresse { get => adresse; set => adresse = value; }
         public string Tel { get => tel; set => tel = value; }
 
+        /// <summary>
+        /// Methode surchargé de toString
+        /// </summary>
+        /// <returns>Retourne un string contenant les données de l'intervenant</returns>
         public string toString()
         {
-            return "Intervenant Externe : " + this.Nom + " " + this.Prenom +" Specialité : " + this.Specialite;
+            return "Intervenant Externe : " + this.Nom + " " + this.Prenom +" Specialité : " + this.Specialite + "\n\t\tAdresse : " + this.Adresse;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Metier
     {
         private string nom;
         private string prenom;
-        protected List<Prestation> listePresta = new List<Prestation>(); 
+        protected List<Prestation> prestations = new List<Prestation>(); 
 
         public Intervenant(string nom, string prenom)
         {
@@ -21,16 +21,28 @@ namespace Metier
 
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => prenom = value; }
-        public List<Prestation> ListePresta { get => listePresta;}
+        public List<Prestation> ListePresta { get => prestations;}
 
         public void AjoutePrestation(Prestation prestation)
         {
-            this.listePresta.Add(prestation);
+            this.prestations.Add(prestation);
         }
 
+        /// <summary>
+        /// Methode surchargé de toString
+        /// </summary>
+        /// <returns>Retourne un string contenant les données de l'intervenant</returns>
         public string toString()
         {
             return "Intervenant : " + this.Nom + " " + this.Prenom;
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <returns>Retourne le nombre de préstations</returns>
+        public int GetNbPrestations()
+        {
+            return prestations.Count;
         }
     }
 }
