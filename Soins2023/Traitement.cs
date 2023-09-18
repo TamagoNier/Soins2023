@@ -18,5 +18,21 @@ namespace Outils
         {
             return dossier.toString();
         }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="intervenant">Retourne le nombre des prestations de l'intervenant en paramétre</param>
+        public static void TesteGetNbPrestationI(Intervenant intervenant)
+        {
+            Console.WriteLine("Nb Prestations Intervenant : " + intervenant.GetNbPrestations());
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="intervenant">Retourne le nombre des prestations de l'intervenant externe en paramétre</param>
+        public static void TesteGetNbPrestationIE(IntervenantExterne intervenant)
+        {
+            Console.WriteLine("Nb Prestations Intervenant Externe: " + intervenant.GetNbPrestations());
+        }
     }
 }

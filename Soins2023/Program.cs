@@ -16,7 +16,7 @@ namespace Soins2023
             try
             {
                 IntervenantExterne i1 = new IntervenantExterne("Jean", "Joe", "magie therapeutique", "Rue Du Grand Mage", "0545989898");
-                Intervenant i2 = new IntervenantExterne("Trueman", "Joel", "pistoThérapie", "Rue du Victor", "0606060660");
+                IntervenantExterne i2 = new IntervenantExterne("Trueman", "Joel", "pistoThérapie", "Rue du Victor", "0606060660");
                 Intervenant i3 = new Intervenant("Trueman", "Joel");
 
                 DateTime dateHeureSoin = new DateTime(2022, 01, 12, 15, 0, 0);
@@ -53,6 +53,13 @@ namespace Soins2023
 
                 Console.WriteLine(Traitement.TesteDossier(d1));
                 Console.WriteLine(Traitement.TesteDossier(d2));
+                Console.WriteLine("---------------------------------------");
+
+                Traitement.TesteGetNbPrestationI(i3);
+                Traitement.TesteGetNbPrestationIE(i2);
+                
+
+                Console.WriteLine("---------------------------------------");
                 Console.WriteLine("Nombre de jours de soin D1 : " + d1.GetNbJoursSoinV2());
                 Console.WriteLine("Nombre de jours de soin D2 : " + d2.GetNbJoursSoinV2());
                 Console.WriteLine("Nombre de soins externes D1: " + d1.GetNbPrestationsExternes());

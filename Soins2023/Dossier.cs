@@ -13,6 +13,7 @@ namespace Metier
         private string prenom;
         private DateTime dateNaissance;
         private List<Prestation> prestations = new List<Prestation>();
+        private readonly DateTime dateCreation = DateTime.Now;
 
         public Dossier(string nom, string prenom, DateTime dateNaissance)
         {
@@ -32,6 +33,7 @@ namespace Metier
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => nom = value; }
         public DateTime DateNaissance { get => dateNaissance;}
+        public DateTime DateCreation { get => dateCreation;}
 
         /// <summary>
         /// Ajoute une prestation à la liste de prestations de la classe dossier
