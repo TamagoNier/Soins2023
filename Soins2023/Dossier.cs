@@ -41,16 +41,14 @@ namespace Metier
         /// <param name="prestation"></param>
         public void AjoutePrestation(Prestation prestation)
         {
-            this.prestations.Add(prestation);
-        }
-
-        /// <summary>
-        /// Ajoute une liste de prestations à la liste de prestation de la classe dossier
-        /// </summary>
-        /// <param name="prestations"></param>
-        public void AjoutePrestations(List<Prestation> prestations)
-        {
-            this.prestations.AddRange(prestations);
+            if (DateTime.Compare(prestation.DateHeureSoin,this.DateCreation) == 1)
+            {
+                this.prestations.Add(prestation);
+            }
+            else
+            {
+                throw new Exception("La prestation doit etre posterieure à la date de creation du dossier");
+            }
         }
 
 
