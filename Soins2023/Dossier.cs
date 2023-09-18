@@ -21,18 +21,50 @@ namespace Metier
             this.prenom = prenom;
             this.dateNaissance = dateNaissance;
         }
-        public Dossier(string nom, string prenom, DateTime dateNaissance, Prestation presta):this(nom, prenom, dateNaissance)
+        public Dossier(string nom, string prenom, DateTime dateNaissance, Prestation prestation) :this(nom, prenom, dateNaissance)
         {
-            this.prestations.Add(presta);
+            if (DateTime.Compare(prestation.DateHeureSoin, this.DateCreation) == 1)
+            {
+                this.prestations.Add(prestation);
+            }
+            else
+            {
+                throw new Exception("La prestation doit etre posterieure à la date de creation du dossier");
+            }
         }
         public Dossier(string nom, string prenom, DateTime dateNaissance, List<Prestation> newListePrestations):this(nom, prenom, dateNaissance)
         {
+            foreach(Prestation prestation in newListePrestations)
+            {
+                if(prestation.DateHeureSoin < this.DateCreation)
+                {
+                    throw new Exception("Date de soin non conforme");
+                }
+                else
+                {
+                    this.prestations.Add(prestation);
+                }
+            }
             this.prestations = newListePrestations;
         }
 
         public string Nom { get => nom; set => nom = value; }
         public string Prenom { get => prenom; set => nom = value; }
-        public DateTime DateNaissance { get => dateNaissance;}
+        public DateTime DateNaissance
+        {
+            get => dateNaissance;
+            set
+            {
+                if (DateTime.Compare(value, DateTime.Now) == 1)
+                {
+                    dateNaissance = value;
+                }
+                else
+                {
+                    throw new Exception("La personne doit être deja néee");
+                }
+            }
+        }
         public DateTime DateCreation { get => dateCreation;}
 
         /// <summary>

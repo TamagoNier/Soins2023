@@ -19,10 +19,10 @@ namespace Soins2023
                 IntervenantExterne i2 = new IntervenantExterne("Trueman", "Joel", "pistoThérapie", "Rue du Victor", "0606060660");
                 Intervenant i3 = new Intervenant("Trueman", "Joel");
 
-                DateTime dateHeureSoin = new DateTime(2022, 01, 12, 15, 0, 0);
-                DateTime dateHeureSoin2 = new DateTime(2022, 01, 12, 17, 0, 0);
-                DateTime dateHeureSoin3 = new DateTime(2022, 08, 14, 15, 0, 0);
-                DateTime dateHeureSoin4 = new DateTime(2022, 03, 18, 17, 0, 0);
+                DateTime dateHeureSoin = new DateTime(2024, 01, 12, 15, 0, 0);
+                DateTime dateHeureSoin2 = new DateTime(2024, 01, 12, 17, 0, 0);
+                DateTime dateHeureSoin3 = new DateTime(2025, 08, 14, 15, 0, 0);
+                DateTime dateHeureSoin4 = new DateTime(2024, 03, 18, 17, 0, 0);
                 DateTime dateHeureSoin5 = new DateTime(2024, 03, 14, 18, 0, 0);
 
                 DateTime dateNaiss = new DateTime(2004, 01, 23, 6, 0, 0);
@@ -46,10 +46,8 @@ namespace Soins2023
                 prestations2.Add(p4);
                 prestations2.Add(p5);
 
-                Dossier d1 = new Dossier("Gerard", "Julie", dateNaiss);
-                Dossier d2 = new Dossier("Grabulax", "LeDaro", dateNaiss);
-                d1.AjoutePrestations(prestations);
-                d2.AjoutePrestations(prestations2);
+                Dossier d1 = new Dossier("Gerard", "Julie", dateNaiss, prestations);
+                Dossier d2 = new Dossier("Grabulax", "LeDaro", dateNaiss, prestations2);
 
                 Console.WriteLine(Traitement.TesteDossier(d1));
                 Console.WriteLine(Traitement.TesteDossier(d2));
