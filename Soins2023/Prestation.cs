@@ -28,14 +28,14 @@ namespace Metier
             {
                 try
                 {
-                    if (DateTime.Compare(value, DateTime.Now) == -1)
-                    {
+                    //if (DateTime.Compare(value, DateTime.Now) == -1)
+                    //{
                         dateHeureSoin = value;
-                    }
-                    else
-                    {
-                        throw new Exception("La prestation doit avoir deja eu lieu");
-                    }
+                    //}
+                    //else
+                    //{
+                    //    throw new Exception("La prestation doit avoir deja eu lieu");
+                    //}
                 }
                 catch(Exception ex)
                 {

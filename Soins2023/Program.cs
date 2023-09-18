@@ -21,7 +21,7 @@ namespace Soins2023
 
                 DateTime dateHeureSoin = new DateTime(2024, 01, 12, 15, 0, 0);
                 DateTime dateHeureSoin2 = new DateTime(2024, 01, 12, 17, 0, 0);
-                DateTime dateHeureSoin3 = new DateTime(2025, 08, 14, 15, 0, 0);
+                DateTime dateHeureSoin3 = new DateTime(2024, 08, 14, 15, 0, 0);
                 DateTime dateHeureSoin4 = new DateTime(2024, 03, 18, 17, 0, 0);
                 DateTime dateHeureSoin5 = new DateTime(2024, 03, 14, 18, 0, 0);
 
