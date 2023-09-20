@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Soins2023;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,7 +38,7 @@ namespace Metier
                     //    throw new Exception("La prestation doit avoir deja eu lieu");
                     //}
                 }
-                catch(Exception ex)
+                catch(SoinsException ex)
                 {
                     Console.WriteLine(ex);     
                 }

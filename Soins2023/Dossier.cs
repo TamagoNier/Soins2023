@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Soins2023;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Metier
             }
             else
             {
-                throw new Exception("La prestation doit etre posterieure à la date de creation du dossier");
+                throw new SoinsException("La prestation doit etre posterieure à la date de creation du dossier");
             }
         }
         public Dossier(string nom, string prenom, DateTime dateNaissance, List<Prestation> newListePrestations):this(nom, prenom, dateNaissance)
@@ -38,7 +39,7 @@ namespace Metier
             {
                 if(prestation.DateHeureSoin < this.DateCreation)
                 {
-                    throw new Exception("Date de soin non conforme");
+                    throw new SoinsException("Date de soin non conforme");
                 }
                 else
                 {
@@ -61,7 +62,7 @@ namespace Metier
                 }
                 else
                 {
-                    throw new Exception("La personne doit être deja néee");
+                    throw new SoinsException("La personne doit être deja néee");
                 }
             }
         }
@@ -79,7 +80,7 @@ namespace Metier
             }
             else
             {
-                throw new Exception("La prestation doit etre posterieure à la date de creation du dossier");
+                throw new SoinsException("La prestation doit etre posterieure à la date de creation du dossier");
             }
         }
 

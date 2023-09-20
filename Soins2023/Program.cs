@@ -19,7 +19,7 @@ namespace Soins2023
                 IntervenantExterne i2 = new IntervenantExterne("Trueman", "Joel", "pistoThérapie", "Rue du Victor", "0606060660");
                 Intervenant i3 = new Intervenant("Trueman", "Joel");
 
-                DateTime dateHeureSoin = new DateTime(2024, 01, 12, 15, 0, 0);
+                DateTime dateHeureSoin = new DateTime(2022, 01, 12, 15, 0, 0);
                 DateTime dateHeureSoin2 = new DateTime(2024, 01, 12, 17, 0, 0);
                 DateTime dateHeureSoin3 = new DateTime(2024, 08, 14, 15, 0, 0);
                 DateTime dateHeureSoin4 = new DateTime(2024, 03, 18, 17, 0, 0);
@@ -64,7 +64,7 @@ namespace Soins2023
                 Console.WriteLine("Nombre de soins externes D2: " + d2.GetNbPrestationsExternes());
                 Console.WriteLine("Execution avec succées");
 
-            }catch(Exception ex)
+            }catch(SoinsException ex)
             {
                 Console.WriteLine(ex.Message);
             }

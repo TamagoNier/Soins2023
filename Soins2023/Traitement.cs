@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace Outils
         /// <returns></returns>
         public static string TesteDossier(Dossier dossier)
         {
+            //var json= JsonConvert.SerializeObject(dossier);
+            //Console.WriteLine("JSON");
             return dossier.toString();
         }
 
